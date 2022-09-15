@@ -1,5 +1,8 @@
 """Changing bases."""
 
+from email.mime import base
+
+
 digits = {}
 
 for i in range(0, 10):
@@ -13,20 +16,28 @@ digits[14] = 'E'
 digits[15] = 'F'
 
 
-def change_to_base(n: int, b: int) -> str:
-    """
-    Return `n` in base `b`.
+def change_to_base(i,b):
+    if i== 0:
+        return [0]
+    if i>0:
+        number_in_b=[]
+        while i>0:
+            q=(i//b)
+            r=i%b
+            number_in_b.append(r)
+            i=q
+        number_in_b.reverse()
+        better_format = int("".join(map(str, number_in_b)))
+        print(better_format)
+    else:
+        number_in_b=[]
+        while i:
+            i=abs(i)
+            q=(i//b)
+            r=i%b
+            number_in_b.append(r)
+            i=q
+        number_in_b.reverse()
+        better_format = int("".join(map(str, number_in_b)))
+        print("-",better_format)
 
-    The base `b` must be in the range 2 to 16.
-
-    >>> change_to_base(1, 2)
-    '1'
-    >>> change_to_base(31, 2)
-    '11111'
-    >>> change_to_base(31, 8)
-    '37'
-    >>> change_to_base(31, 16)
-    '1F'
-    """
-    assert 2 <= b <= 16
-    return ''  # FIXME: return n in the right base
