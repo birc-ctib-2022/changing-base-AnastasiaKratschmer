@@ -17,18 +17,27 @@ digits[15] = 'F'
 
 
 def change_to_base(i,b):
-        if i== 0:
-            return [0]
-        else:
-            number_in_b=[]
-            while i>0:
-                q=(i//b)
-                r=i%b
-                number_in_b.append(r)
-                i=q
-            number_in_b.reverse()
-            better_format = int("".join(map(str, number_in_b)))
-            print(better_format)
-
-change_to_base(10000,13)
+    if i== 0:
+        return [0]
+    if i>0:
+        number_in_b=[]
+        while i>0:
+            q=(i//b)
+            r=i%b
+            number_in_b.append(r)
+            i=q
+        number_in_b.reverse()
+        better_format = int("".join(map(str, number_in_b)))
+        print(better_format)
+    else:
+        number_in_b=[]
+        while i:
+            i=abs(i)
+            q=(i//b)
+            r=i%b
+            number_in_b.append(r)
+            i=q
+        number_in_b.reverse()
+        better_format = int("".join(map(str, number_in_b)))
+        print("-",better_format)
 
